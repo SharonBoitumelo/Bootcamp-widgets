@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="transport-fee-widget.js" defer></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="transport-fee.js"></script>
+
+<style>
+    body{
+            background-color: darkcyan;
+        }
+        .message{
+            padding: 1em;
+            background-color: aqua;
+            margin-top: 1em;
+            display: inline-flex;
+            width: 15em;
+            
+        }
+        button{
+            background-color: grey;
+            margin: 1em;
+        }
+</style>
+    
+</head>
+<body>
+    <div class="widget" x-data="transportFeeWidget">
+        <h2>Transport Fee</h2>
+
+        <p><strong>Choose the shift you are working today: </strong></p>
+
+        <div class="morning">
+            <input type="radio" @click="shiftFee" id="morning" x-model="shift" value="morning"> 
+            <label for="morning"> Morning</label> 
+        </div>
+
+        <div class="afternoon">
+            <input type="radio" @click="shiftFee" id="afternoon" x-model="shift" value="afternoon">
+            <label for="afternoon"> Afternoon</label> 
+        </div>
+
+        <div class="nightshift">
+            <input type="radio" @click="shiftFee" id="nightshift" x-model="shift" value="nightshift"> Nightshift
+        </div>
+
+       <h3> Amount</h3>
+
+        <div class="message" x-text="message"  x-show="message.length > 0" x-model="shift">
+            Transport fee
+        </div>
+
+        
+        
+    </div>
+</body>
+</html>
